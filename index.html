@@ -1,114 +1,279 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <style>
-      header{
-        background: lightblue;
-        border: solid blue;
-        border-width: 10px 0px 10px 0px;
-        margin: 0 auto;
-        text-align: center;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Animated CV</title>
+  <style>
+    /* Root Variables */
+    :root {
+      --gradient-1: #8e44ad;
+      --gradient-2: #3498db;
+      --gradient-3: #e74c3c;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --heading-color: #2c3e50;
+      --text-color: #2c3e50;
+      --button-bg: #e74c3c;
+      --button-hover: #c0392b;
+      --shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Arial', sans-serif;
+      color: var(--text-color);
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
       }
-       h1{
-      font-size: 3em;
+      50% {
+        background-position: 100% 50%;
       }
-      
-      .circle{
-      height: 250px;
-      width: 250px;
-      background: blue;
-      border-radius: 50%;
-      border: 10px solid white;
-      display: inline-block;
+      100% {
+        background-position: 0% 50%;
       }
-      
-      h3{
-        background-color: #ce54c7;
-        padding: 15px;
-        font-size: 1.5em;
-        border-left: 10px solid #d6d5cd;
-      }
-      
-      header, h3{
+    }
+
+    /* Header Section */
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      height: 100vh;
       color: white;
-      font-family: "Arial Black", Gadget, sans-serif;
+      animation: fadeIn 2s ease;
+    }
+
+    .typing-effect {
+      font-size: 4em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 4px solid white;
+      animation: typing 3s steps(30, end), blink 0.8s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
       }
-      
-      body{
-      font-family: helvetica, arial, san-serif;
+      to {
+        width: 10ch;
       }
-      
-      p, ul{
-        padding-left: 50px;
-        font-size: 1.3em;
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
       }
-      .emoji {
-        font-size: 8em;
+    }
+
+    .subheading {
+      font-size: 1.5em;
+      margin-top: 10px;
+      font-style: italic;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
       }
-      p,ul {
-  list-style: none;
-  padding-left: 50px;
-  font-size: 1.3em;
-  }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div>
-    <div> 
-      <img class="circle" src="images/Screenshot 2024-05-31 171951.png">
-    </div>        
-      </div>
-      <br>
-      <h1>omar ajhir</h1>
-      <i>freelanncer</i><br><br>
-    </header> <br>
-    <h3>
-      DETAILS:
-    </h3>
-    <p>Date of Birth: 20 july 2010</p>
-     <p>School: Alwah</p>
-     <p>Grade: 9</p>
-    
-   <h3>
-     ABOUT ME
-   </h3>
-  <p>I love pizza</p>
-  <p>My dream is to fly</p>
-    
-  <h3>
-     EDUCATION
-   </h3>
-  <p>2011-2015: East-gate Primary, tangier</p>
-  <p>Future: 2020-2024: BSc in Computer Science, Univ of SA</p>
-    
-  <h3>
-     EXPERIENCES
-   </h3>
-  <p>I was born in Morroco</p>
-  <p>I enjoy  playing padle</p>
-  
-  <h3>
-     SKILLS
-   </h3>
-  <ul>
-  <li>&#9898; Awesome at tennis</li>  
-  <li>&#9898; Dance like noobs</li>  
-  <li>&#9898; Level 5...</li>  
-   
-      <li>I can make spaghetti.</li>
-      <li>Taught Michael Jackson to dance.</li>
-  </ul>
-  <h3>       
-  &#9737; DETAILS
-  </h3>
-   
-  &copy; Copyright 2021 Thandi Ndlovu Inc.   
-  <center>  
-   
-  
-  &copy; Copyright2021 Thandi Ndlovu Inc.
-  </center>  
-  
-  
-  </body>
-    
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-circle {
+      width: 150px;
+      height: 150px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      animation: bounceIn 1.5s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .emoji {
+      font-size: 3em;
+      color: var(--gradient-3);
+    }
+
+    /* Main Section */
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 50px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      color: var(--heading-color);
+      font-size: 1.8em;
+      border-bottom: 3px solid var(--gradient-3);
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card p, .card ul {
+      color: var(--text-color);
+      font-size: 1.1em;
+      margin-bottom: 15px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+    }
+
+    .card ul li {
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--button-bg);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--button-hover);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+    }
+
+    footer a {
+      color: var(--gradient-3);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="profile-circle">
+      <div class="emoji">&#128640;</div> <!-- Rocket Emoji -->
+    </div>
+    <div class="typing-effect">CV</div>
+    <p class="subheading">Your Professional Journey</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="card">
+      <h3>Details</h3>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Date of Birth:</strong> 27 July 2006</p>
+      <p><strong>Address:</strong> 1234 Elm Street, Hometown, USA</p>
+      <p><strong>Email:</strong> john.doe@example.com</p>
+      <p><strong>Phone:</strong> +123-456-7890</p>
+    </section>
+
+    <section class="card">
+      <h3>About Me</h3>
+      <p>I am a passionate individual with a strong enthusiasm for technology, creativity, and problem-solving. I strive to build impactful digital solutions that make a difference in people's lives.</p>
+      <p>In my spare time, I enjoy exploring AI innovations, learning about new programming frameworks, and working on personal development projects.</p>
+    </section>
+
+    <section class="card">
+      <h3>Education</h3>
+      <p><strong>2011-2015:</strong> East-gate Primary, Boksburg</p>
+      <p><strong>2016-2020:</strong> XYZ High School, Hometown</p>
+      <p><strong>2021-2024:</strong> BSc in Computer Science, University of SA</p>
+    </section>
+
+    <section class="card">
+      <h3>Skills</h3>
+      <ul>
+        <li><strong>Programming Languages:</strong> Python, JavaScript, C++</li>
+        <li><strong>Frameworks:</strong> React.js, Node.js</li>
+        <li><strong>Web Development:</strong> HTML, CSS, Bootstrap</li>
+        <li><strong>Design Tools:</strong> Figma, Adobe Photoshop</li>
+        <li><strong>Soft Skills:</strong> Leadership, Problem-Solving, Team Collaboration</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3>Experience</h3>
+      <p><strong>2023:</strong> Intern at Tech Innovators Ltd. - Worked on developing responsive web applications and contributing to team projects.</p>
+      <p><strong>2022:</strong> Volunteer Web Developer at Community Hub - Designed and maintained websites for local businesses and non-profits.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 John Doe. All Rights Reserved.</p>
+    <p>
+      <a href="#">LinkedIn</a> | 
+      <a href="#">GitHub</a> | 
+      <a href="#">Portfolio</a>
+    </p>
+  </footer>
+</body>
+</html>
+
